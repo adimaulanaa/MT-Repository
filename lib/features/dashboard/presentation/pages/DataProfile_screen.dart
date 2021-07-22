@@ -536,7 +536,7 @@ class _DataProfileState extends State<DataProfile> {
                     padding: const EdgeInsets.fromLTRB(10, 5, 80, 10),
                     // padding: const EdgeInsets.fromLTRB(left, top, right, bottom)
                     child: Text(
-                      'RW',
+                      'RWawdsawd',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
