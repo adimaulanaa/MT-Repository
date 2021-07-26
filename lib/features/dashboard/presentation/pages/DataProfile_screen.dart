@@ -552,7 +552,9 @@ class _DataProfileState extends State<DataProfile> {
                           ))
                       .toList(),
                   onChanged: (kecamatan) {
-                    Kec = kecamatan.toString();
+                    setState(() {
+                      Kec = kecamatan.toString();
+                    });
                   },
                 ),
               ),
@@ -602,7 +604,9 @@ class _DataProfileState extends State<DataProfile> {
                           ))
                       .toList(),
                   onChanged: (kelurahan) {
-                    Kel = kelurahan.toString();
+                    setState(() {
+                      Kel = kelurahan.toString();
+                    });
                   },
                 ),
               ),
@@ -652,7 +656,9 @@ class _DataProfileState extends State<DataProfile> {
                             ))
                         .toList(),
                     onChanged: (rt) {
-                      Rt = rt.toString();
+                      setState(() {
+                        Rt = rt.toString();
+                      });
                     },
                   )
                 ],
@@ -699,7 +705,9 @@ class _DataProfileState extends State<DataProfile> {
                             ))
                         .toList(),
                     onChanged: (rw) {
-                      Rw = rw.toString();
+                      setState(() {
+                        Rw = rw.toString();
+                      });
                     },
                   )
                 ],
@@ -769,24 +777,26 @@ class _DataProfileState extends State<DataProfile> {
             errorText: 'You must accept terms and conditions to continue',
           ),
           onChanged: (sama_ktp) {
-            if (sama_ktp == true) {
-              print("Jalan: " + _controllerJalan.text);
-              print("Provinsi: " + Prov);
-              print("Kota/Kabupaten: " + Koka);
-              print("Kecamatan: " + Kec);
-              print("Kelurhan: " + Kel);
-              print("RT: " + Rt);
-              print("RW: " + Rw);
+            setState(() {
+              if (sama_ktp == true) {
+                print("Jalan: " + _controllerJalan.text);
+                print("Provinsi: " + Prov);
+                print("Kota/Kabupaten: " + Koka);
+                print("Kecamatan: " + Kec);
+                print("Kelurhan: " + Kel);
+                print("RT: " + Rt);
+                print("RW: " + Rw);
 
-              _cgetJalan.text = _controllerJalan.text;
-              getProv = Prov;
-              getKoko = Koka;
+                _cgetJalan.text = _controllerJalan.text;
+                getProv = Prov;
+                getKoko = Koka;
 
-              print("test" + _cgetJalan.text);
-              print("test" + getProv);
-            } else {
-              print("salah");
-            }
+                print("test" + _cgetJalan.text);
+                print("test" + getProv);
+              } else {
+                print("salah");
+              }
+            });
           },
         ),
       );
@@ -879,7 +889,6 @@ class _DataProfileState extends State<DataProfile> {
       );
 
   Widget getKokap() => SizedBox(
-    if()
         // width: 370,
         child: Column(
           children: [
@@ -899,7 +908,6 @@ class _DataProfileState extends State<DataProfile> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: FormBuilderDropdown(
-                  
                   name: 'getKokap',
                   decoration: InputDecoration(
                     // labelText: 'Kota',
@@ -912,16 +920,17 @@ class _DataProfileState extends State<DataProfile> {
                   // initialValue: 'Male',
                   allowClear: true,
                   hint: Text('Pilih Kota/Kabupaten'),
-                  
+
                   validator: FormBuilderValidators.compose(
-                      [FormBuilderValidators.required(context)]),
+                    [FormBuilderValidators.required(context)],
+                  ),
                   items: kotaOptions
                       .map((getKokap) => DropdownMenuItem(
                             value: getKokap,
                             child: Text('$getKokap'),
                           ))
                       .toList(),
-                      
+
                   initialValue: Koka.toString(),
                 ),
               ),
@@ -970,7 +979,7 @@ class _DataProfileState extends State<DataProfile> {
                             child: Text('$getKecamatan'),
                           ))
                       .toList(),
-                  // initialValue: Kec.toString(),
+                  initialValue: Kec.toString(),
                 ),
               ),
             ),
@@ -1018,7 +1027,7 @@ class _DataProfileState extends State<DataProfile> {
                             child: Text('$getKelurahan'),
                           ))
                       .toList(),
-                  // initialValue: Kel.toString(),
+                  initialValue: Kel.toString(),
                 ),
               ),
             ),
@@ -1066,7 +1075,7 @@ class _DataProfileState extends State<DataProfile> {
                               child: Text('$getRt'),
                             ))
                         .toList(),
-                    // initialValue: Rt.toString(),
+                    initialValue: Rt.toString(),
                   )
                 ],
               ),
@@ -1111,7 +1120,7 @@ class _DataProfileState extends State<DataProfile> {
                               child: Text('$getRw'),
                             ))
                         .toList(),
-                    // initialValue: Rw.toString(),
+                    initialValue: Rw.toString(),
                   )
                 ],
               ),
