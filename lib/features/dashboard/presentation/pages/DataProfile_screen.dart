@@ -501,7 +501,9 @@ class _DataProfileState extends State<DataProfile> {
                             ))
                         .toList(),
                     onChanged: (kokap) {
-                      Koka = kokap.toString();
+                      setState(() {
+                        Koka = kokap.toString();
+                      });
                     }),
               ),
             ),
