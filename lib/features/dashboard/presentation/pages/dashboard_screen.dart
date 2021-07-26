@@ -26,18 +26,35 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: SizedBox(
-          child: Padding(
-              padding: const EdgeInsets.fromLTRB(40, 30, 40, 20),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return DataProfile();
-                  }));
-                },
-                child: Text('Isi Data'),
-              )),
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              child: Padding(
+                  padding: const EdgeInsets.fromLTRB(40, 30, 40, 20),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return DataProfile();
+                      }));
+                    },
+                    child: Text('Isi Data'),
+                  )),
+            ),
+            SizedBox(
+              child: Padding(
+                  padding: const EdgeInsets.fromLTRB(40, 30, 40, 20),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return DataProfile();
+                      }));
+                    },
+                    child: Text('Test Data'),
+                  )),
+            ),
+          ],
         ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.

@@ -153,12 +153,12 @@ class _DataProfileState extends State<DataProfile> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        // Text(''),
-        child: Text("Add"),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   tooltip: 'Increment',
+      //   // Text(''),
+      //   child: Text("Add"),
+      // ),
     );
   }
 
@@ -239,8 +239,6 @@ class _DataProfileState extends State<DataProfile> {
                     .map((jk) => FormBuilderFieldOption(value: jk))
                     .toList(growable: false),
                 onChanged: (jk) {
-                  // Jk = jk.toString();
-                  // print("jk $jk");
                   setState(() {
                     Jk = jk.toString();
                   });
@@ -758,7 +756,7 @@ class _DataProfileState extends State<DataProfile> {
         padding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
         // padding: const EdgeInsets.fromLTRB(left, top, right, bottom)
         child: FormBuilderCheckbox(
-          name: 'sama_ktp',
+          name: 'samaKtp',
           // onChanged: (),
           initialValue: false,
           title: RichText(
@@ -776,9 +774,9 @@ class _DataProfileState extends State<DataProfile> {
             true,
             errorText: 'You must accept terms and conditions to continue',
           ),
-          onChanged: (sama_ktp) {
+          onChanged: (samaKtp) {
             setState(() {
-              if (sama_ktp == true) {
+              if (samaKtp == true) {
                 print("Jalan: " + _controllerJalan.text);
                 print("Provinsi: " + Prov);
                 print("Kota/Kabupaten: " + Koka);
