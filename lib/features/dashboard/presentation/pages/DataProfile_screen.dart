@@ -1,14 +1,15 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:mini_project/theme/color.dart';
 // import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:mini_project/features/dashboard/presentation/pages/dashboard_screen.dart';
 import 'package:mini_project/config/stringresource.dart';
+import 'package:mini_project/theme/textstyle.dart';
 
 class DataProfile extends StatefulWidget {
   DataProfile({Key? key}) : super(key: key);
+
+  // bool get wantKeepAlive => true;
 
   @override
   _DataProfileState createState() => _DataProfileState();
@@ -17,6 +18,8 @@ class DataProfile extends StatefulWidget {
 class _DataProfileState extends State<DataProfile> {
   final _formkey = GlobalKey<FormBuilderState>();
   bool value = true;
+  bool get wantKeepAlive => true;
+
   var provinsiOptions = ["Jakarta", "Bandung", "Banten"];
   var kotaOptions = ["Cengkareng", "Meruya", "Joglo"];
   var kecamatanOptions = ["Serpong Utara", "Pondok Aren"];
@@ -30,7 +33,7 @@ class _DataProfileState extends State<DataProfile> {
   final _controllerTglLahir = new TextEditingController();
   final _controllerJalan = new TextEditingController();
 
-  final _ctest = new TextEditingController();
+  final _cgetJalan = new TextEditingController();
 
   // get provinsi => ;
   String Jk = '';
@@ -122,6 +125,7 @@ class _DataProfileState extends State<DataProfile> {
       body: FormBuilder(
         key: _formkey,
         child: ListView(
+          addAutomaticKeepAlives: true,
           children: [
             setNama(),
             setJK(),
@@ -163,13 +167,14 @@ class _DataProfileState extends State<DataProfile> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 15, 300, 0),
+              padding: const EdgeInsets.fromLTRB(0, 15, 323, 0),
               child: Text(
                 "Nama",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
                 ),
+                // TextPalette.altTextStyle,
                 textAlign: TextAlign.left,
               ),
             ),
@@ -202,13 +207,13 @@ class _DataProfileState extends State<DataProfile> {
       );
 
   Widget setJK() => Padding(
-        padding: const EdgeInsets.fromLTRB(70, 0, 90, 0),
+        padding: const EdgeInsets.fromLTRB(40, 0, 90, 0),
         // child: Center(
         // child: Container(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 100, 0),
+              padding: const EdgeInsets.fromLTRB(0, 10, 180, 0),
               // padding: const EdgeInsets.fromLTRB(left, top, right, bottom)
               child: Text(
                 "Jenis Kelamin",
@@ -254,7 +259,7 @@ class _DataProfileState extends State<DataProfile> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 5, 80, 10),
+                    padding: const EdgeInsets.fromLTRB(0, 5, 120, 10),
                     // padding: const EdgeInsets.fromLTRB(left, top, right, bottom)
                     child: Text(
                       'Tempat',
@@ -294,7 +299,7 @@ class _DataProfileState extends State<DataProfile> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    padding: const EdgeInsets.fromLTRB(0, 5, 80, 10),
                     // padding: const EdgeInsets.fromLTRB(left, top, right, bottom)
                     child: Text(
                       'Tanggal Lahir',
@@ -339,7 +344,7 @@ class _DataProfileState extends State<DataProfile> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 10, 300, 0),
+              padding: const EdgeInsets.fromLTRB(0, 15, 323, 0),
               child: Text(
                 "Jalan",
                 style: TextStyle(
@@ -408,7 +413,7 @@ class _DataProfileState extends State<DataProfile> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 10, 280, 0),
+              padding: const EdgeInsets.fromLTRB(0, 15, 313, 0),
               child: Text(
                 "Provinsi",
                 style: TextStyle(
@@ -460,7 +465,7 @@ class _DataProfileState extends State<DataProfile> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 10, 220, 0),
+              padding: const EdgeInsets.fromLTRB(15, 10, 265, 0),
               child: Text(
                 "Kota/Kabupaten",
                 style: TextStyle(
@@ -509,7 +514,7 @@ class _DataProfileState extends State<DataProfile> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 10, 250, 0),
+              padding: const EdgeInsets.fromLTRB(15, 10, 300, 0),
               child: Text(
                 "Kecamatan",
                 style: TextStyle(
@@ -559,7 +564,7 @@ class _DataProfileState extends State<DataProfile> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 10, 250, 0),
+              padding: const EdgeInsets.fromLTRB(15, 10, 300, 0),
               child: Text(
                 "Kelurahan",
                 style: TextStyle(
@@ -763,7 +768,6 @@ class _DataProfileState extends State<DataProfile> {
           ),
           onChanged: (sama_ktp) {
             if (sama_ktp == true) {
-              print("bner");
               print("Jalan: " + _controllerJalan.text);
               print("Provinsi: " + Prov);
               print("Kota/Kabupaten: " + Koka);
@@ -772,10 +776,11 @@ class _DataProfileState extends State<DataProfile> {
               print("RT: " + Rt);
               print("RW: " + Rw);
 
-              _ctest.text = _controllerJalan.text;
+              _cgetJalan.text = _controllerJalan.text;
               getProv = Prov;
+              getKoko = Koka;
 
-              print("test" + _ctest.text);
+              print("test" + _cgetJalan.text);
               print("test" + getProv);
             } else {
               print("salah");
@@ -806,7 +811,7 @@ class _DataProfileState extends State<DataProfile> {
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 // padding: const EdgeInsets.fromLTRB(left, top, right, bottom),
                 child: FormBuilderTextField(
-                  controller: _ctest,
+                  controller: _cgetJalan,
                   decoration: InputDecoration(
                       // labelText: "Nama",
                       fillColor: ColorPalette.grey,
@@ -842,6 +847,7 @@ class _DataProfileState extends State<DataProfile> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: FormBuilderDropdown(
+                  // initialValue: Prov.toString(),
                   name: 'getProvinsi',
                   decoration: InputDecoration(
                     // labelText: 'Provinsi',
@@ -862,9 +868,7 @@ class _DataProfileState extends State<DataProfile> {
                             child: Text('$getProvinsi'),
                           ))
                       .toList(),
-                  onChanged: (getProvinsi) {
-                    getProvinsi = getProv.toString();
-                  },
+                  initialValue: Prov.toString(),
                 ),
               ),
             ),
@@ -912,6 +916,7 @@ class _DataProfileState extends State<DataProfile> {
                             child: Text('$getKokap'),
                           ))
                       .toList(),
+                  initialValue: Koka.toString(),
                 ),
               ),
             ),
@@ -959,6 +964,7 @@ class _DataProfileState extends State<DataProfile> {
                             child: Text('$getKecamatan'),
                           ))
                       .toList(),
+                  // initialValue: Kec.toString(),
                 ),
               ),
             ),
@@ -1006,6 +1012,7 @@ class _DataProfileState extends State<DataProfile> {
                             child: Text('$getKelurahan'),
                           ))
                       .toList(),
+                  // initialValue: Kel.toString(),
                 ),
               ),
             ),
@@ -1021,7 +1028,7 @@ class _DataProfileState extends State<DataProfile> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 5, 120, 10),
+                    padding: const EdgeInsets.fromLTRB(0, 10, 230, 0),
                     // padding: const EdgeInsets.fromLTRB(left, top, right, bottom)
                     child: Text(
                       'RT',
@@ -1053,6 +1060,7 @@ class _DataProfileState extends State<DataProfile> {
                               child: Text('$getRt'),
                             ))
                         .toList(),
+                    // initialValue: Rt.toString(),
                   )
                 ],
               ),
@@ -1097,6 +1105,7 @@ class _DataProfileState extends State<DataProfile> {
                               child: Text('$getRw'),
                             ))
                         .toList(),
+                    // initialValue: Rw.toString(),
                   )
                 ],
               ),

@@ -26,36 +26,32 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          // new ElevatedButton(onPressed: () {},)
-          // child: Raise,
-
-          // child: IconButton(
-
-          //   onPressed: () {
-          //     Navigator.pushReplacement(context,
-          //         MaterialPageRoute(builder: (context) {
-          //       return DataProfile();
-          //     }));
-          //   },
-          //   icon: new Icon(
-          //     Icons.mail_outline,
-          //     size: 20.0,
-          //   ),
-          //   color: Colors.blue,
-          // ),
-          ),
-      // This trailing comma makes auto-formatting nicer for build methods.
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) {
-            return DataProfile();
-          }));
-        },
-        tooltip: 'Increment',
-        // Text(''),
-        child: Icon(Icons.add),
+        child: SizedBox(
+          child: Padding(
+              padding: const EdgeInsets.fromLTRB(40, 30, 40, 20),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) {
+                    return DataProfile();
+                  }));
+                },
+                child: Text('Isi Data'),
+              )),
+        ),
       ),
+      // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     Navigator.pushReplacement(context,
+      //         MaterialPageRoute(builder: (context) {
+      //       return DataProfile();
+      //     }));
+      //   },
+      //   tooltip: 'Increment',
+      //   // Text(''),
+      //   child: Icon(Icons.add),
+      // ),
     );
   }
 }
