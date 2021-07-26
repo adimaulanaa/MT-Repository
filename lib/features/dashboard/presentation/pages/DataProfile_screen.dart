@@ -879,6 +879,7 @@ class _DataProfileState extends State<DataProfile> {
       );
 
   Widget getKokap() => SizedBox(
+    if()
         // width: 370,
         child: Column(
           children: [
@@ -898,6 +899,7 @@ class _DataProfileState extends State<DataProfile> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: FormBuilderDropdown(
+                  
                   name: 'getKokap',
                   decoration: InputDecoration(
                     // labelText: 'Kota',
@@ -910,6 +912,7 @@ class _DataProfileState extends State<DataProfile> {
                   // initialValue: 'Male',
                   allowClear: true,
                   hint: Text('Pilih Kota/Kabupaten'),
+                  
                   validator: FormBuilderValidators.compose(
                       [FormBuilderValidators.required(context)]),
                   items: kotaOptions
@@ -918,6 +921,7 @@ class _DataProfileState extends State<DataProfile> {
                             child: Text('$getKokap'),
                           ))
                       .toList(),
+                      
                   initialValue: Koka.toString(),
                 ),
               ),
