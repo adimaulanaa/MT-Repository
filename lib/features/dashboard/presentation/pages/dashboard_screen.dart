@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:mini_project/theme/textstyle.dart';
 import 'package:mini_project/features/dashboard/presentation/pages/DataProfile_screen.dart';
+import 'package:mini_project/features/dashboard/presentation/pages/Second_Dashboard.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -48,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
-                        return DataProfile();
+                        return secondDashboard();
                       }));
                     },
                     child: Text('Test Data'),
