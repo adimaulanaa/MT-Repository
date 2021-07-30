@@ -1,0 +1,4 @@
+#Fri Jul 30 13:09:21 ICT 2021
+base.0=C\:\\Users\\THINKPAD W540\\Documents\\Data adi maulana\\flutter\\mt\\mini-project-mp2\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
