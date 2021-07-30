@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:mini_project/theme/color.dart';
 // import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:mini_project/features/dashboard/presentation/pages/dashboard_screen.dart';
 import 'package:mini_project/config/stringresource.dart';
-import 'package:mini_project/theme/textstyle.dart';
+// import 'package:mini_project/theme/textstyle.dart';
 
 class secondDashboard extends StatefulWidget {
   secondDashboard({Key? key}) : super(key: key);
@@ -119,7 +120,6 @@ class _secondDashboard extends State<secondDashboard> {
                                 borderSide: BorderSide.none,
                                 borderRadius: BorderRadius.circular(10)),
                           ),
-                          // initialValue: 'Male',
                           allowClear: true,
                           hint: Text('Pilih Provinsi'),
                           validator: FormBuilderValidators.compose(
@@ -245,4 +245,6 @@ class _secondDashboard extends State<secondDashboard> {
       ),
     );
   }
+
+  bool keepAlive = true;
 }
