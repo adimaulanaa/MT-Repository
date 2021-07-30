@@ -9,6 +9,7 @@ import 'package:mini_project/features/dashboard/presentation/bloc/dashboard_stat
 import 'package:mini_project/features/dashboard/presentation/bloc/bloc.dart';
 import 'package:mini_project/features/dashboard/domain/entities/datadiri.dart';
 import 'package:flash/flash.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class PageDataDiri extends StatefulWidget {
   PageDataDiri({Key? key}) : super(key: key);
@@ -65,6 +66,12 @@ class _PageDataDiriState extends State<PageDataDiri> {
           if (state is AddDashboardSuccess) {
             if (state.isSuccess) {
               context.showSuccessBar(content: Text('I succeeded!'));
+              Alert(
+                context: context,
+                type: AlertType.warning,
+                title: "Data Berhasi ",
+                desc: "Apa anda yakin menghapus data.",
+              );
             }
           }
           if (state is DashboardFailure) {
@@ -1248,6 +1255,11 @@ class _PageDataDiriState extends State<PageDataDiri> {
                     ),
                   ),
                 );
+                Alert(
+                    context: context,
+                    type: AlertType.success,
+                    title: "Success",
+                    desc: "Anda berhasil menambah Data Diri");
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) {
                   return DashboardPage();

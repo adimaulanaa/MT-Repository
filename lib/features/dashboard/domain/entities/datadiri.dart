@@ -38,23 +38,22 @@ class DataDiri {
   @HiveField(16)
   String rwRumah;
 
-  DataDiri({
-    required this.name,
-    required this.tempat,
-    required this.jalan,
-    required this.jenisKelamin,
-    required this.tanggalLahir,
-    required this.provinsiKtp,
-    required this.kabupatenKtp,
-    required this.kecamatanKtp,
-    required this.desaKtp,
-    required this.rtKtp,
-    required this.rwKtp,
-    required this.provinsiRumah,
-    required this.kabupatenRumah,
-    required this.kecamatanRumah,
-    required this.desaRumah,
-    required this.rtRumah,
-    required this.rwRumah
-  });
+  DataDiri(
+      {required this.name,
+      required this.tempat,
+      required this.jalan,
+      required this.jenisKelamin,
+      required this.tanggalLahir,
+      required this.provinsiKtp,
+      required this.kabupatenKtp,
+      required this.kecamatanKtp,
+      required this.desaKtp,
+      required this.rtKtp,
+      required this.rwKtp,
+      required this.provinsiRumah,
+      required this.kabupatenRumah,
+      required this.kecamatanRumah,
+      required this.desaRumah,
+      required this.rtRumah,
+      required this.rwRumah});
 }

@@ -1,10 +1,15 @@
+// import 'package:commons/alert_dialogs.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mini_project/config/stringresource.dart';
 import 'package:mini_project/features/dashboard/domain/entities/datadiri.dart';
 import 'package:mini_project/features/dashboard/presentation/bloc/bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
 import 'package:mini_project/theme/color.dart';
+import 'package:mini_project/theme/textstyle.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 const String DataDiriBoxName = "BOX_Friends";
 
@@ -28,7 +33,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("Dashboard"),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {
+                // showSearch(context: context, delegate: DataSearch());
+              },
+              icon: Icon(Icons.search))
+        ],
       ),
       body: ValueListenableBuilder(
         valueListenable: Hive.box<DataDiri>(DataDiriBoxName).listenable(),
@@ -42,78 +54,117 @@ class _DashboardScreenState extends State<DashboardScreen> {
             itemCount: box.values.length,
             itemBuilder: (context, index) {
               var currentDataDiri = box.getAt(index);
-              return ListTile(
-                title: Text(currentDataDiri!.name),
-                subtitle: Text(currentDataDiri.jalan),
-                leading: CircleAvatar(backgroundColor: ColorPalette.primary),
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    IconButton(
-                        onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (_) {
-                                return Dialog(
-                                  child: Container(
-                                    padding: EdgeInsets.all(32),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                            "Alamat Data Diri ------------------------------"),
-                                        Text("Nama : " + currentDataDiri.name),
-                                        Text("Jenis Kelamin : " +
-                                            currentDataDiri.jenisKelamin),
-                                        Text("Tempat : " +
-                                            currentDataDiri.tempat),
-                                        Text("Tanggal Lahir :" +
-                                            currentDataDiri.tanggalLahir),
-                                        Text(
-                                            "Alamat KTP ------------------------------"),
-                                        Text(
-                                            "Jalan : " + currentDataDiri.jalan),
-                                        Text("Provinsi : " +
-                                            currentDataDiri.provinsiKtp),
-                                        Text("Kota/kabupaten : " +
-                                            currentDataDiri.kabupatenKtp),
-                                        Text("Kecamatan : " +
-                                            currentDataDiri.kecamatanKtp),
-                                        Text("Kelurahan/Desa : " +
-                                            currentDataDiri.desaKtp),
-                                        Text("RT : " + currentDataDiri.rtKtp),
-                                        Text("Rw : " + currentDataDiri.rwKtp),
-                                        Text("  "),
-                                        Text(
-                                            "Alamat Tempat Tinggal------------------- "),
-                                        Text("  "),
-                                        Text("Provinsi : " +
-                                            currentDataDiri.provinsiRumah),
-                                        Text("Kota/kabupaten : " +
-                                            currentDataDiri.kabupatenRumah),
-                                        Text("Kecamatan : " +
-                                            currentDataDiri.kecamatanRumah),
-                                        Text("Kelurahan/Desa : " +
-                                            currentDataDiri.desaRumah),
-                                        Text("RT : " + currentDataDiri.rtRumah),
-                                        Text("Rw : " + currentDataDiri.rwRumah),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              });
-                        },
-                        icon: Icon(Icons.info)),
-                    IconButton(
-                        onPressed: () {
-                          box.deleteAt(index);
-                        },
-                        icon: Icon(Icons.delete))
-                  ],
-                ),
-              );
+              return Card(
+                  clipBehavior: Clip.antiAlias,
+                  elevation: 2,
+                  child: ListTile(
+                    title: Text(
+                      currentDataDiri!.name,
+                      style: TextPalette.fieldStyle,
+                    ),
+                    subtitle: Text(currentDataDiri.jalan),
+                    leading:
+                        CircleAvatar(backgroundColor: ColorPalette.primary),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        IconButton(
+                            onPressed: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (_) {
+                                    return Dialog(
+                                      child: Container(
+                                        padding: EdgeInsets.all(32),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text("Alamat Data Diri "),
+                                            Divider(),
+                                            Text("Nama : " +
+                                                currentDataDiri.name),
+                                            Text("Jenis Kelamin : " +
+                                                currentDataDiri.jenisKelamin),
+                                            Text("Tempat : " +
+                                                currentDataDiri.tempat),
+                                            Text("Tanggal Lahir :" +
+                                                currentDataDiri.tanggalLahir),
+                                            Text(""),
+                                            Text("Alamat KTP "),
+                                            Divider(),
+                                            Text("Jalan : " +
+                                                currentDataDiri.jalan),
+                                            Text("Provinsi : " +
+                                                currentDataDiri.provinsiKtp),
+                                            Text("Kota/kabupaten : " +
+                                                currentDataDiri.kabupatenKtp),
+                                            Text("Kecamatan : " +
+                                                currentDataDiri.kecamatanKtp),
+                                            Text("Kelurahan/Desa : " +
+                                                currentDataDiri.desaKtp),
+                                            Text("RT : " +
+                                                currentDataDiri.rtKtp),
+                                            Text("Rw : " +
+                                                currentDataDiri.rwKtp),
+                                            Text(""),
+                                            Text("Alamat Tempat Tinggal "),
+                                            Divider(),
+                                            Text("Provinsi : " +
+                                                currentDataDiri.provinsiRumah),
+                                            Text("Kota/kabupaten : " +
+                                                currentDataDiri.kabupatenRumah),
+                                            Text("Kecamatan : " +
+                                                currentDataDiri.kecamatanRumah),
+                                            Text("Kelurahan/Desa : " +
+                                                currentDataDiri.desaRumah),
+                                            Text("RT : " +
+                                                currentDataDiri.rtRumah),
+                                            Text("Rw : " +
+                                                currentDataDiri.rwRumah),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            },
+                            icon: Icon(Icons.info)),
+                        IconButton(
+                            onPressed: () {
+                              Alert(
+                                context: context,
+                                type: AlertType.warning,
+                                title: "DELETE DATA",
+                                desc: "Apa anda yakin menghapus data.",
+                                buttons: [
+                                  DialogButton(
+                                      child: Text(
+                                        "Delete",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                      onPressed: () {
+                                        box.deleteAt(index);
+                                        Navigator.pop(context);
+                                      },
+                                      color: ColorPalette.main),
+                                  DialogButton(
+                                      child: Text(
+                                        "Cancel",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                      onPressed: () => Navigator.pop(context),
+                                      color: ColorPalette.main)
+                                ],
+                              ).show();
+                              //
+                            },
+                            icon: Icon(Icons.delete))
+                      ],
+                    ),
+                  ));
             },
           );
         },
