@@ -169,6 +169,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
           );
         },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: [
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home),
+      //       label: "Home",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.mail),
+      //       label: "Mail",
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

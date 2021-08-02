@@ -65,6 +65,7 @@ class MyApp extends StatelessWidget {
       title: StringResources.TEXT_APLICATION_TITLE,
       theme: ThemeData(
         primarySwatch: ColorPalette.red,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: DashboardPage(),
     );

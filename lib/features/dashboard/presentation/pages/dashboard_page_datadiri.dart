@@ -207,7 +207,7 @@ class _PageDataDiriState extends State<PageDataDiri> {
                   ),
                   validator: FormBuilderValidators.compose([
                     FormBuilderValidators.required(context),
-                    FormBuilderValidators.maxLength(context, 25),
+                    FormBuilderValidators.maxLength(context, 2),
                   ]),
                 ),
               ],
